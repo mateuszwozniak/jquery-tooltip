@@ -1,0 +1,36 @@
+html,
+body {
+    font-family: Arial;
+}
+
+body {
+    padding: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+section {
+    width: 100%;
+    overflow: hidden;
+}
+
+.wrap {
+    padding: 40px;
+}
+
+.tooltip-area {
+    width: 500px;
+    height: 500px;
+    float: left;
+    text-align: center;
+}
+
+.tooltip-area button {
+    margin: 240px auto;
+}
+
+.toggles {
+    padding-top: 130px;
+}

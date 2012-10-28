@@ -1,0 +1,180 @@
+$arrowHeight = 10px
+$arrowOffset = 45px
+$tooltipContentPadding = 20px
+$popupTextColor = #333
+$popupBgColor = #eee
+
+
+.tooltip
+  position absolute
+  min-width 200px
+  max-width 400px
+  z-index 1
+
+  .content-wrap
+    padding $tooltipContentPadding
+    background-color $popupBgColor
+    border-radius 4px
+    box-shadow 0 1px 3px #808080
+    font-size $mediumFont
+    color $popupTextColor
+
+    *:first-child
+      margin-top 0
+    *:last-child
+      margin-bottom 0
+
+  &:before
+    content ''
+    width 2 * $arrowHeight
+    height $arrowHeight
+    position absolute
+    background-image url('popup-arrows.png')
+
+  &.t
+    .content-wrap 
+      margin-top $arrowHeight
+
+    &:before
+      background-position -10px 0
+      left 50%
+      margin-left - $arrowHeight
+
+    &.tl:before
+      left $arrowOffset
+      margin 0
+
+    &.tr:before
+      left auto
+      right $arrowOffset
+      margin 0
+
+  &.b
+    .content-wrap
+      margin-bottom $arrowHeight
+
+    &:before
+      background-position -10px 50px
+      left 50%
+      bottom 0
+      margin-left - $arrowHeight
+
+    &.bl:before
+      left $arrowOffset
+      margin 0
+
+    &.br:before
+      left auto
+      right $arrowOffset
+      margin 0
+
+  &.l
+    .content-wrap
+      margin-left $arrowHeight
+
+    &:before
+      width $arrowHeight
+      height 2 * $arrowHeight
+      background-position 0 -10px
+      top 50%
+      margin-top - $arrowHeight
+
+    &.lt:before
+      top $arrowOffset
+      margin 0
+
+    &.lb:before
+      top auto
+      bottom $arrowOffset
+      margin 0
+
+  &.r
+    .content-wrap
+      margin-right $arrowHeight
+
+    &:before
+      width $arrowHeight
+      height 2 * $arrowHeight
+      background-position 10px 30px
+      top 50%
+      right 0
+      margin-top - $arrowHeight
+
+    &.rt:before
+      top $arrowOffset
+      margin 0
+
+    &.rb:before
+      top auto
+      bottom $arrowOffset
+      margin 0
+
+.tooltip.css-arrows
+  &:before
+    content ''
+    width 0
+    height 0
+    background none
+    position absolute
+    border-color transparent
+    border-style solid
+    border-width 0
+
+  &.t:before
+    border-width 0 $arrowHeight $arrowHeight
+    border-bottom $arrowHeight solid $popupBgColor
+
+  &.b:before
+    border-width $arrowHeight $arrowHeight 0
+    border-top $arrowHeight solid $popupBgColor
+
+  &.l:before
+    border-width $arrowHeight $arrowHeight $arrowHeight 0
+    border-right $arrowHeight solid $popupBgColor
+
+  &.r:before
+    border-width $arrowHeight 0 $arrowHeight $arrowHeight
+    border-left $arrowHeight solid $popupBgColor
+
+.mobile-popup-wrapper
+  padding 10px
+  position fixed
+  top 0
+  left 0
+  bottom 0
+  right 0
+  z-index 200
+  overflow auto
+  background rgba(255, 255, 255, 0.9)
+
+  .tooltip
+    width 100%
+    position relative
+    max-width 100%
+
+  &:before
+    display none
+
+.icon-close
+  float right
+  position absolute
+  border none
+  width 40px // clickable area should be larger for touch devices
+  height 40px 
+  top -15px
+  right -15px
+  background transparent
+
+  span
+    width 20px
+    height 20px
+    border-radius 20px
+    border none
+    background #555
+    color #fff
+    margin-top 10px
+    display block
+    font-size 14px
+
+.hide-overflows
+  overflow hidden
